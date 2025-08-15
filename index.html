@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخطوط الجوية العربية السعودية | الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saudi-green: #006c42;
+            --saudi-gold: #c99d40;
+            --light-gold: #e8c97d;
+            --dark-green: #004d2e;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            direction: rtl;
+        }
+        
+        /* التصميم العام */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* شريط التنقل */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-left: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--saudi-green);
+            margin: 0;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--saudi-gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--saudi-green);
+            background-color: rgba(0, 108, 66, 0.1);
+        }
+        
+        .nav-links .active {
+            color: var(--saudi-green);
+            border-bottom: 2px solid var(--saudi-gold);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .btn-outline {
+            border: 1px solid var(--saudi-green);
+            color: var(--saudi-green);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--saudi-green);
+            color: var(--white);
+        }
+        
+        .btn-primary {
+            background-color: var(--saudi-green);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+        }
+        
+        .btn-gold {
+            background-color: var(--saudi-gold);
+            color: var(--white);
+        }
+        
+        .btn-gold:hover {
+            background-color: var(--light-gold);
+        }
+        
+        /* الهيرو */
+        .hero {
+            background: linear-gradient(rgba(0, 108, 66, 0.8), rgba(0, 108, 66, 0.8)), url('https://images.unsplash.com/photo-1556388155-9f0b5ef2b5f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* نموذج الحجز */
+        .booking-form {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: -80px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .form-header {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-header .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .form-header .tab.active {
+            border-bottom: 3px solid var(--saudi-gold);
+            color: var(--saudi-green);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+        
+        .form-group {
+            flex: 1 0 200px;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--saudi-green);
+            box-shadow: 0 0 0 2px rgba(0, 108, 66, 0.2);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        /* الأقسام */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--saudi-green);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--saudi-gold);
+        }
+        
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* العروض */
+        .offers {
+            background-color: var(--white);
+        }
+        
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .offer-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .offer-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .offer-content {
+            padding: 20px;
+        }
+        
+        .offer-badge {
+            background-color: var(--saudi-gold);
+            color: var(--white);
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .offer-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+        
+        .offer-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        /* الوجهات */
+        .destinations {
+            background: linear-gradient(to bottom, var(--light-gray) 50%, var(--white) 50%);
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .destination-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 300px;
+        }
+        
+        .destination-img {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        
+        .destination-card:hover .destination-img {
+            transform: scale(1.1);
+        }
+        
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 20px;
+            color: var(--white);
+        }
+        
+        .destination-overlay h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .destination-overlay p {
+            opacity: 0.9;
+        }
+        
+        /* ميزاتنا */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--saudi-gold);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--saudi-green);
+        }
+        
+        /* التذييل */
+        .footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--saudi-gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--saudi-gold);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-left: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--saudi-gold);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 992px) {
+            .navbar-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin: 20px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 5px;
+            }
+            
+            .form-header {
+                flex-wrap: wrap;
+            }
+            
+            .form-header .tab {
+                flex: 1;
+                text-align: center;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .booking-form {
+                margin-top: -50px;
+            }
+            
+            .form-group {
+                flex: 1 0 100%;
+            }
+            
+            .form-actions {
+                justify-content: center;
+            }
+            
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <h1>الخطوط الجوية السعودية</h1>
+                    <span>Saudia - Fly with Excellence</span>
+                </div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">الصفحة الرئيسية</a></li>
+                <li><a href="#">حجز التذاكر</a></li>
+                <li><a href="#">إدارة الحجز</a></li>
+                <li><a href="#">سعودية بلس</a></li>
+                <li><a href="#">الوجهات</a></li>
+                <li><a href="#">خدمات المسافرين</a></li>
+            </ul>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-outline">تسجيل الدخول</button>
+                <button class="btn btn-primary">سجل الآن</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم الهيرو -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>رحلات بمعايير التميز</h2>
+                <p>استمتع بتجربة سفر استثنائية مع الخطوط الجوية العربية السعودية، مع أكثر من 100 وجهة حول العالم</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج الحجز -->
+    <div class="container">
+        <div class="booking-form">
+            <div class="form-header">
+                <div class="tab active">رحلات ذهاب وعودة</div>
+                <div class="tab">رحلات ذهاب فقط</div>
+                <div class="tab">رحلات متعددة</div>
+                <div class="tab">حجز فنادق</div>
+            </div>
+            
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="from">من</label>
+                        <input type="text" class="form-control" id="from" placeholder="المدينة أو المطار">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="to">إلى</label>
+                        <input type="text" class="form-control" id="to" placeholder="المدينة أو المطار">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="depart">تاريخ المغادرة</label>
+                        <input type="date" class="form-control" id="depart">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="return">تاريخ العودة</label>
+                        <input type="date" class="form-control" id="return">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passengers">المسافرون</label>
+                        <select class="form-control" id="passengers">
+                            <option>1 مسافر (بالغ)</option>
+                            <option>2 مسافرون (بالغون)</option>
+                            <option>2 مسافرون (بالغ + طفل)</option>
+                            <option>3 مسافرون</option>
+                            <option>4 مسافرون</option>
+                            <option>5 مسافرون</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="class">فئة السفر</label>
+                        <select class="form-control" id="class">
+                            <option>السياحية</option>
+                            <option>الأعمال</option>
+                            <option>الدرجة الأولى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="promo">رمز العرض</label>
+                        <input type="text" class="form-control" id="promo" placeholder="اختياري">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn btn-gold" style="padding: 12px 30px; font-size: 1.1rem;">
+                        <i class="fas fa-search"></i> ابحث عن رحلات
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- العروض الخاصة -->
+    <section class="section offers">
+        <div class="container">
+            <div class="section-header">
+                <h2>عروضنا الخاصة</h2>
+                <p>استفد من عروضنا الحصرية ووفر على رحلاتك القادمة</p>
+            </div>
+            
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1534214526114-0ea4d47b04f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="offer-content">
+                        <span class="offer-badge">خصم 30%</span>
+                        <h3>عروض العمرة المميزة</h3>
+                        <p>استمتع برحلات عمرة مميزة مع خدماتنا الفاخرة وتخفيضات تصل إلى 30% على التذاكر</p>
+                        <a href="#" class="btn btn-outline">احجز الآن</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="offer-content">
+                        <span class="offer-badge">عرض العائلة</span>
+                        <h3>عطلة عائلية في أوروبا</h3>
+                        <p>احصل على تذاكر مخفضة للعائلة إلى أهم الوجهات الأوروبية مع خدمات مميزة للأطفال</p>
+                        <a href="#" class="btn btn-outline">احجز الآن</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="offer-content">
+                        <span class="offer-badge">عروض الصيف</span>
+                        <h3>وجهات شاطئية مميزة</h3>
+                        <p>استمتع بعطلتك الصيفية على أجمل الشواطئ العالمية مع عروض تصل إلى 25%</p>
+                        <a href="#" class="btn btn-outline">احجز الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الوجهات -->
+    <section class="section destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>وجهاتنا الشهيرة</h2>
+                <p>اكتشف أكثر من 100 وجهة حول العالم مع الخطوط السعودية</p>
+            </div>
+            
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="destination-overlay">
+                        <h3>دبي</h3>
+                        <p>الإمارات العربية المتحدة</p>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1543429776-2782fc586c6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="destination-overlay">
+                        <h3>لندن</h3>
+                        <p>المملكة المتحدة</p>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="destination-overlay">
+                        <h3>باريس</h3>
+                        <p>فرنسا</p>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-img" style="background-image: url('https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="destination-overlay">
+                        <h3>نيويورك</h3>
+                        <p>الولايات المتحدة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ميزاتنا -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>لماذا تختار الخطوط السعودية؟</h2>
+                <p>نقدم لك تجربة سفر استثنائية بمعايير عالمية</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم على مدار الساعة</h3>
+                    <p>فريق دعم متاح 24/7 لمساعدتك في أي استفسار أو طارئ خلال رحلتك</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>وجات فاخرة</h3>
+                    <p>استمتع بأشهى المأكولات المعدة من قبل أفضل الطهاة العالميين</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>واي فاي مجاني</h3>
+                    <p>اتصال إنترنت مجاني على جميع الرحلات الدولية لتبقى على تواصل</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>مقاعد فسيحة</h3>
+                    <p>مقاعد مريحة بمساحة أكبر للأرجل لرحلات مريحة وممتعة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>الخطوط السعودية</h3>
+                    <p>الخطوط الجوية العربية السعودية هي الناقل الوطني للمملكة العربية السعودية، وتقدم خدماتها لأكثر من 100 وجهة حول العالم.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">عن السعودية</a></li>
+                        <li><a href="#">الوظائف</a></li>
+                        <li><a href="#">مركز الأخبار</a></li>
+                        <li><a href="#">اتفاقية المستخدم</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>خدمات المسافرين</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">إدارة الحجز</a></li>
+                        <li><a href="#">أمتعة السفر</a></li>
+                        <li><a href="#">الضيافة الخاصة</a></li>
+                        <li><a href="#">تأشيرات السفر</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 920022222</li>
+                        <li><i class="fas fa-envelope"></i> info@saudia.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> جدة، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة © 2023 الخطوط الجوية العربية السعودية. هذا موقع تجريبي للأغراض التوضيحية فقط.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // كود جافاسكريبت بسيط للتبويبات
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // إضافة تأثيرات للبطاقات عند التمرير
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // تطبيق التأثير على عناصر محددة
+            const animatedElements = document.querySelectorAll('.offer-card, .feature-card, .destination-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
